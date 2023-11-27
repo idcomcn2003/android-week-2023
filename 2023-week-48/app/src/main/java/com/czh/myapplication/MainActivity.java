@@ -1,9 +1,11 @@
 package com.czh.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +15,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void lgoin(View view){
-        Toast.makeText(MainActivity.this,"登录成功", Toast.LENGTH_SHORT).show();
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.add_item:
+                Toast.makeText(this, "臭小子你按到添加啦哈哈哈", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.remove_item:
+                Toast.makeText(this, "你按删除干什么呀!", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return true;
     }
 }
